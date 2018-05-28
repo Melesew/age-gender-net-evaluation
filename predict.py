@@ -47,7 +47,7 @@ def folder_files(image_path, predicted_dir):
     :param predicted_path: destination path of images to their respective dir.(male/female)
     :return: number representing one of the age classes
     '''
-    model = load_model('gen.h5')
+    model = load_model('models/gen.h5')
 
     #Prepare path to predicted images
 
