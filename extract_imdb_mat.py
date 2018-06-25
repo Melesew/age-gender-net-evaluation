@@ -2,6 +2,8 @@ import cv2
 import os
 from scipy.io import loadmat
 
+#This file prepares labled files using the .mat file in imdb_crop
+
 CURRENT_DIR = os.getcwd()
 imdb_path = '../../datasets/imdb_crop'
 
@@ -41,7 +43,7 @@ def preprocess_for_gender_classifiaction():
 
         # takes the first 21 folders from imdb_crop directory
         if head[0] == '0' or head[0] == '1' or (head[0] == '2' and head[1] == '0'):
-            if gender[i] == 0.0 and countf <= 1000:
+            if gender[i] == 0.0 and countf <= 2000:
                 newtail = female_path + tail
                 _path = imdb_path +'/'+ str(full_path[i][0])
 
@@ -50,7 +52,7 @@ def preprocess_for_gender_classifiaction():
                 if tru:
                     countf += 1
 
-            elif gender[i] == 1.0 and countm <= 1000:
+            elif gender[i] == 1.0 and countm <= 2000:
                 newtail = male_path + tail
                 _path = imdb_path +'/'+ str(full_path[i][0])
                 t = cv2.imread(_path)

@@ -61,7 +61,7 @@ def folder_files(image_path, predicted_dir):
 
     path = os.path.join(image_path, '*.jpg')
     files = glob.glob(path)
-    for fl in files:  # 2015 files
+    for fl in files:  # 774 files
         img = Image.open(fl)
         preds = predict(model, img, target_size)
 
@@ -76,10 +76,27 @@ def folder_files(image_path, predicted_dir):
 
         # print(fl, get_classNames(class_num))
 
-
 if __name__ == "__main__":
-    predicted_dir = CURRENT_DIR + '/predicted'
-    if not os.path.exists(predicted_dir):
-        predicted_dir = os.mkdir(CURRENT_DIR + '/predicted')
+    # predicted_dir = CURRENT_DIR + '/predicted'
+    # if not os.path.exists(predicted_dir):
+    #     predicted_dir = os.mkdir(CURRENT_DIR + '/predicted')
+    #
+    # folder_files(DATA_PATH, predicted_dir)
 
-    folder_files(DATA_PATH, predicted_dir)
+    a = argparse.ArgumentParser()
+    a.add_argument("--image", help="path to image")
+    a.add_argument("--image_array")
+    a.add_argument("--model")
+    args = a.parse_args()
+
+    if args.image is None:
+        a.print_help()
+        sys.exit(1)
+
+    model = load_model(args.model)
+    if args.image is not None:
+        img = Image.open(args.image)
+        preds = predict(model, img, target_size)
+        print(np.argmax(preds))
+    else:
+        print ("bzw")
