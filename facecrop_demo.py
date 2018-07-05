@@ -32,13 +32,5 @@ if __name__ == "__main__":
     a.add_argument("--image", help="path to image")
     a.add_argument("--image_array")
     args = a.parse_args()
-    # a = None
-    # img = Image.open(args.image)
-    # try:
-    #     a = sys.argv[1]
-    #     print(sys.arv[0], sys.argv[1], sys.argv[2] )
-    # except:
-    #     print  ("image argument expected")
-    #     exit(0)
 
     facecrop(args.image)

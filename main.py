@@ -7,12 +7,13 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.applications.inception_v3 import preprocess_input
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import CSVLogger
-from keras import regularizers
+# from keras import regularizers
 
 import keras.backend as K
 
-train_dir = "../../datasets/genderdata/train"
-test_dir = "../../datasets/genderdata/test"
+train_dir = "datasets/genderdata/train"
+test_dir = "datasets/genderdata/test"
+
 csv_logger = CSVLogger('log.csv', append=True, separator=';')
 
 def get_nb_files(directory):
@@ -108,11 +109,6 @@ model.add(Conv2D(512, (3, 3), activation='relu', padding='valid'))
 model.add(Dropout(0.6))
 model.add(Conv2D(512, (3, 3), activation='relu', padding='valid'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-
-# model.add(Conv2D(1024, (3, 3), activation='relu', padding='valid'))
-# model.add(Dropout(0.75))
-# model.add(Conv2D(1024, (3, 3), activation='relu', padding='valid'))
-# model.add(MaxPooling2D(pool_size=(2, 2)))
 
 model.add(Flatten())
 model.add(Dense(512, activation='relu'))
