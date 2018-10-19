@@ -30,5 +30,5 @@ visually_inspect.py visualizes the models performance
 
 ## Results
 
-trained model is found [here] (https://gitlab.com/Melesew/gender-classification/blob/master)
+trained model is found [here](https://gitlab.com/Melesew/gender-classification/blob/master/)
 
