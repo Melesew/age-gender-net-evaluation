@@ -80,7 +80,7 @@ if __name__ == "__main__":
     # predicted_dir = CURRENT_DIR + '/predicted'
     # if not os.path.exists(predicted_dir):
     #     predicted_dir = os.mkdir(CURRENT_DIR + '/predicted')
-    #
+
     # folder_files(DATA_PATH, predicted_dir)
 
     a = argparse.ArgumentParser()
